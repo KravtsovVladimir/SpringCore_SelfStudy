@@ -12,15 +12,15 @@ import java.io.IOException;
  */
 public class FileEventLogger implements EventLogger {
     private String filename;
-    File file;
+    private File file;
 
     public FileEventLogger(String filename) {
         this.filename = filename;
     }
 
-    private void init() throws IOException{
+    private void init() throws IOException {
         this.file = new File(filename);
-        if (!file.canWrite()){
+        if (!file.canWrite()) {
             throw new IOException("Cannot write in file");
         }
     }
