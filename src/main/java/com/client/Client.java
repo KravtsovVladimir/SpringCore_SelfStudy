@@ -1,4 +1,4 @@
-package com;
+package com.client;
 
 /**
  * Created by Volodymyr_Kravtsov on 4/27/2017.

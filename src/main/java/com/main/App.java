@@ -1,8 +1,10 @@
 package com.main;
 
-import com.Client;
+import com.client.Client;
+import com.event.Event;
 import com.logger.EventLogger;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
@@ -18,21 +20,24 @@ public class App {
         this.eventLogger = eventLogger;
     }
 
-    public App() {
-    }
-
     public static void main(String[] args) {
 
-        ApplicationContext ctx = new ClassPathXmlApplicationContext("spring.xml");
+        ConfigurableApplicationContext ctx = new ClassPathXmlApplicationContext("spring.xml");
 
         App app = (App) ctx.getBean("app");
+        Event event = (Event) ctx.getBean("event");
 
-        app.logEvent("Some event for 1");
-        app.logEvent("Some event for 2");
+        for (int i = 0; i < 7; i++) {
+            event.setMsg("Some event for 1");
+            app.logEvent(event);
+        }
+
+        ctx.close();
     }
 
-    public void logEvent(String msg) {
-        String message = msg.replaceAll(String.valueOf(client.getId()), client.getFullName());
-        eventLogger.logEvent(message);
+    public void logEvent(Event event) {
+        String message = event.getMsg().replaceAll(String.valueOf(client.getId()), client.getFullName());
+        event.setMsg(message);
+        eventLogger.logEvent(event);
     }
 }
