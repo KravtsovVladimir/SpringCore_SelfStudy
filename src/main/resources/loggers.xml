@@ -15,4 +15,14 @@
         <constructor-arg value="5"/>
     </bean>
 
+    <bean id="combinedEventLogger" class="com.logger.impl.CombinedEventLogger">
+        <constructor-arg>
+            <list>
+                <ref bean="consoleEventLogger"/>
+                <ref bean="fileEventLogger"/>
+                <ref bean="cacheFileEventLogger"/>
+            </list>
+        </constructor-arg>
+    </bean>
+
 </beans>
