@@ -3,17 +3,19 @@ package com.client;
 /**
  * Created by Volodymyr_Kravtsov on 4/27/2017.
  */
+
 public class Client {
+
     private int id;
     private String fullName;
     private String greeting;
 
+    public Client() {
+    }
+
     public Client(int id, String fullName) {
         this.id = id;
         this.fullName = fullName;
-    }
-
-    public Client() {
     }
 
     public int getId() {

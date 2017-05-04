@@ -7,6 +7,7 @@ import java.util.Random;
 /**
  * Created by Volodymyr_Kravtsov on 4/28/2017.
  */
+
 public class Event {
     private int id;
     private String msg;

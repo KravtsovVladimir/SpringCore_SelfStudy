@@ -10,7 +10,9 @@ import java.io.IOException;
 /**
  * Created by Volodymyr_Kravtsov on 4/28/2017.
  */
+
 public class FileEventLogger implements EventLogger {
+
     private String filename;
     private File file;
 

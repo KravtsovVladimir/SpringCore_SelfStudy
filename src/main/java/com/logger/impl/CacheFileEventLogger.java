@@ -8,7 +8,9 @@ import java.util.List;
 /**
  * Created by Volodymyr_Kravtsov on 4/28/2017.
  */
+
 public class CacheFileEventLogger extends FileEventLogger {
+
     private int cacheSize;
     private List<Event> cache;
 

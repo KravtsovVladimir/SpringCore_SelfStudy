@@ -12,6 +12,7 @@ import java.util.Map;
 /**
  * Created by Volodymyr_Kravtsov on 4/27/2017.
  */
+
 public class App {
 
     private Client client;
@@ -28,11 +29,12 @@ public class App {
 
         ConfigurableApplicationContext ctx = new ClassPathXmlApplicationContext("spring.xml");
 
+
         App app = (App) ctx.getBean("app");
         Event event = (Event) ctx.getBean("event");
 
         event.setMsg("Some event for 1");
-        app.logEvent(EventType.ERROR, event);
+        app.logEvent(EventType.INFO, event);
 
         ctx.close();
     }
