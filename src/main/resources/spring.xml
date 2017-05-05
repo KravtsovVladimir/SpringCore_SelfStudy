@@ -36,8 +36,8 @@
     </util:map>
 
     <bean id="app" class="com.main.App">
+        <property name="defaultLogger" value="#{T(com.event.Event).isDay() ? fileEventLogger : consoleEventLogger}"/>
         <constructor-arg ref="client"/>
-        <constructor-arg ref="cacheFileEventLogger"/>
         <constructor-arg ref="loggerMap"/>
     </bean>
 

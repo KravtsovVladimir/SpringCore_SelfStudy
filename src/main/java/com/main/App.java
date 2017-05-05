@@ -19,10 +19,17 @@ public class App {
     private EventLogger defaultLogger;
     private Map<EventType, EventLogger> loggers;
 
-    public App(Client client, EventLogger defaultLogger, Map<EventType, EventLogger> loggers) {
+    public App(Client client, Map<EventType, EventLogger> loggers) {
         this.client = client;
-        this.defaultLogger = defaultLogger;
         this.loggers = loggers;
+    }
+
+    public EventLogger getDefaultLogger() {
+        return defaultLogger;
+    }
+
+    public void setDefaultLogger(EventLogger defaultLogger) {
+        this.defaultLogger = defaultLogger;
     }
 
     public static void main(String[] args) {
@@ -34,7 +41,7 @@ public class App {
         Event event = (Event) ctx.getBean("event");
 
         event.setMsg("Some event for 1");
-        app.logEvent(EventType.INFO, event);
+        app.logEvent(null, event);
 
         ctx.close();
     }
